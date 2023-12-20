@@ -26,4 +26,4 @@ it('Upload Fichier png', $pngUploader->uploadFile(sys_get_temp_dir()) == true);
 $excelUploader = new Uploader('mauvais_fichier.xls');
 
 it('Upload Fichier excel', $excelUploader->uploadFile(sys_get_temp_dir()) == true);
-var_dump($excelUploader->error);
+var_dump($excelUploader->$error);
