@@ -1,8 +1,10 @@
 <?php
 
-class Mp3
+require_once 'AudioFormat.php';
+
+class Mp3 extends AudioFormat
 {
-    private $filename;
+    protected $filename;
 
     public function __construct($filename)
     {

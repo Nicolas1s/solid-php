@@ -1,8 +1,10 @@
 <?php
 
-class Ogg
+require_once 'AudioFormat.php';
+
+class Ogg extends AudioFormat
 {
-    private $filename;
+    protected $filename;
 
     public function __construct($filename)
     {
