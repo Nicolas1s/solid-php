@@ -4,6 +4,13 @@ require_once 'MusicType.php';
 
 class Ogg extends MusicType
 {
+    protected $filename;
+
+    public function __construct($filename)
+    {
+        $this->filename = $filename;
+    }
+
     public function listen()
     {
         $extension = pathinfo($this->filename, PATHINFO_EXTENSION);

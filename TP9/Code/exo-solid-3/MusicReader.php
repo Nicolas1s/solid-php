@@ -1,6 +1,9 @@
 <?php
 
 // Si on ajoute un nouveau format, cette classe ne change plus :-)
+require_once 'MusicType.php';
+require_once 'FileExceptions.php';
+
 class MusicReader
 {
     private $musicType;
