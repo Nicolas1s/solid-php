@@ -1,10 +1,17 @@
 <?php
 
+require_once 'Uploader.php';
+require_once 'FileInformation.php';
+
 class FileResize{
-    
-    public function resize($origin, $destination, $width, $maxHeight, $getExtension)
+    private $FileInformation;
+    public function __construct($file)
     {
-        $type = $getExtension();
+        $this->FileInformation = new FileInformation($file);
+    }
+    public function resize($origin, $destination, $width, $maxHeight)
+    {
+        $type = $this->$FileInformation->getType();
         $pngFamily = ['PNG', 'png'];
         $jpegFamily = ['jpeg', 'jpg', 'JPG'];
         if (in_array($type, $jpegFamily)) {
