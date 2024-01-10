@@ -19,12 +19,13 @@ class Uploader
         $this->name = $fileData['name'];
         $this->type = $fileData['type'];
         $this->validTypes = ['PNG', 'png', 'jpeg', 'jpg', 'JPG'];
+        $this->error = null;
     }
 
-    public function uploadFile()
+    public function uploadFile($type, $validTypes, $name, $error)
     {
-        if (!in_array($this->type, $this->validTypes)) {
-            $this->error = 'Le fichier ' . $this->name . ' n\'est pas d\'un type valide';
+        if (!in_array($type, $validTypes)) {
+            $error = 'Le fichier ' . $name . ' n\'est pas d\'un type valide';
 
             return false;
         } else {
@@ -56,7 +57,7 @@ class Uploader
     public function resize($origin, $destination, $width, $maxHeight)
     {
         $fileResize = new FileResize();
-        $type = $fileResize->getExtension($this->name);
+        $type = $this->getExtension();
         $pngFamily = ['PNG', 'png'];
         $jpegFamily = ['jpeg', 'jpg', 'JPG'];
         if (in_array($type, $jpegFamily)) {
